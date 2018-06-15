@@ -98,7 +98,7 @@ Frequency_BW_for_Thickness_Weighting=c.*(Wavelength_BW_for_Thickness_Weighting*1
 % Time-domain
 
 Time_total=1/(Max_Frequency/(N_f-1));
-Time=[0:Time_total/(N_t-1):Time_total]/2;%/2¬O¦]¬°¤@¨Ó¤@¦^
+Time=[0:Time_total/(N_t-1):Time_total]/2;%/2æ˜¯å› ç‚ºä¸€ä¾†ä¸€å›ž
 Time=Time';
 Position=c*Time;
 Position_micron=Position*1E6;
@@ -284,7 +284,7 @@ Spectrum_Reference=2*Spectrum_Reference(1:N_f,:);
  
 
 Spectrum_Sample_1=Spectrum_Sample_1(:,1:Active_Array_Size);
-Spectrum_Sample_2=Spectrum_Sample_2(:,1:Active_Array_Size);   %!!!!!!!!!! ¦]¬°±µ¤U¨Ó´N­nºân k ¤F, §â¨S¦³¨â­Ó¤¶­±ªº©ñ¶i¨Ó±¡ªp·|«Ü©Ç
+Spectrum_Sample_2=Spectrum_Sample_2(:,1:Active_Array_Size);   %!!!!!!!!!! å› ç‚ºæŽ¥ä¸‹ä¾†å°±è¦ç®—n k äº†, æŠŠæ²’æœ‰å…©å€‹ä»‹é¢çš„æ”¾é€²ä¾†æƒ…æ³æœƒå¾ˆæ€ª
 
 Spectrum_Devided=Spectrum_Sample_1./repmat(Spectrum_Reference,1,Active_Array_Size);
 Spectrum_Devided_2=Spectrum_Sample_2./repmat(Spectrum_Reference,1,Active_Array_Size);
@@ -380,7 +380,7 @@ r2= @ (n) (n-n2_Considered)./(n+n2_Considered);
 
 A = @ (n,Thickness_Now,Ratio_Lower2Upper_Now,Ratio_Upper2Reference_Now) abs(Ratio_Upper2Reference_Now./r_AN100_Considered.*(r1(n)));
 B = @ (n,Thickness_Now,Ratio_Lower2Upper_Now,Ratio_Upper2Reference_Now) abs(Ratio_Upper2Reference_Now./r_AN100_Considered.*(Ratio_Lower2Upper_Now.*(t1(n).*t1_r(n).*r2(n).*exp(1i*4*pi.*Frequency_Considered.*n.*Thickness_Now/c))));
-C = @ (n,Thickness_Now,Ratio_Lower2Upper_Now,Ratio_Upper2Reference_Now) unwrap(angle(1./r1(n).*(Ratio_Lower2Upper_Now.*(t1(n).*t1_r(n).*r2(n).*exp(1i*4*pi.*(Frequency_Considered+df).*n.*Thickness_Now/c)))),[],1);%-unwrap(angle(1./r1(n).*(Ratio_Lower2Upper_Now.*(t1(n).*t1_r(n).*r2(n).*exp(1i*4*pi.*Frequency_Considered.*n.*Thickness_Now/c)))),[],1); %ÁöµM¨S¦³µ´¹ïªºphase, ¦ý¬O¬O¤£¬OÀ³¸Ó¥ushift piªº¾ã¼Æ?
+C = @ (n,Thickness_Now,Ratio_Lower2Upper_Now,Ratio_Upper2Reference_Now) unwrap(angle(1./r1(n).*(Ratio_Lower2Upper_Now.*(t1(n).*t1_r(n).*r2(n).*exp(1i*4*pi.*(Frequency_Considered+df).*n.*Thickness_Now/c)))),[],1);%-unwrap(angle(1./r1(n).*(Ratio_Lower2Upper_Now.*(t1(n).*t1_r(n).*r2(n).*exp(1i*4*pi.*Frequency_Considered.*n.*Thickness_Now/c)))),[],1); %é›–ç„¶æ²’æœ‰çµ•å°çš„phase, ä½†æ˜¯æ˜¯ä¸æ˜¯æ‡‰è©²åªshift piçš„æ•´æ•¸?
                    
 det_array = @ (Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9) Q1.*Q5.*Q9 + Q2.*Q6.*Q7 + Q3.*Q4.*Q8 -Q3.*Q5.*Q7 -Q2.*Q4.*Q9 -Q1.*Q6.*Q8;
 
@@ -398,7 +398,7 @@ Q9_P_add_Lambda_PT_inv = @ (Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Lambda) Q9 + Lambda*Q3.*(
 
 
 
-T_abs = @ (n,Thickness_Now) abs(t_AN100_Considered.*t1(n).*t2(n).*exp(1i*2*pi*Frequency_Considered.*n.*Thickness_Now/c)./(1-r1_r(n).*r2(n).*exp(1i*4*pi*Frequency_Considered.*n.*Thickness_Now/c))).^2;          %Note, 120827 remove 2 from ¤À¤l4*pi > 2*pi
+T_abs = @ (n,Thickness_Now) abs(t_AN100_Considered.*t1(n).*t2(n).*exp(1i*2*pi*Frequency_Considered.*n.*Thickness_Now/c)./(1-r1_r(n).*r2(n).*exp(1i*4*pi*Frequency_Considered.*n.*Thickness_Now/c))).^2;          %Note, 120827 remove 2 from åˆ†å­4*pi > 2*pi
                     
 n(1:length(Frequency_Considered),1:Active_Array_Size)=n_should;
 %plot(Wavelength_micron_Considered,Aexp,Wavelength_micron_Considered,A(n,Thickness,Ratio_Lower2Upper(1),Ratio_Upper2Reference(1)));
